@@ -1,6 +1,10 @@
 import os
 
 def delete_contents_in_directory(directory):
+    if not os.path.exists(directory):
+        print(f"Directory '{directory}' does not exist.")
+        return
+
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
         if os.path.isfile(file_path):

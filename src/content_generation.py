@@ -1,7 +1,7 @@
 import os
 from generate_page import generate_page
 
-def generate_pages_from_directory(source_dir, template_path, destination_dir):
+def generate_pages_from_directory(source_dir, template_path, destination_dir, basepath):
     for root, dirs, files in os.walk(source_dir):
         for file in files:
             if file.endswith(".md"):
@@ -17,4 +17,4 @@ def generate_pages_from_directory(source_dir, template_path, destination_dir):
                 else:
 
                     dest_path = os.path.join(destination_dir, relative_no_ext, "index.html")
-                generate_page(from_path, template_path, dest_path)
+                generate_page(from_path, template_path, dest_path, basepath)
